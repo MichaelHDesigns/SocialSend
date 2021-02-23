@@ -97,7 +97,6 @@ public:
     CBaseChainParams::Network NetworkID() const { return networkID; }
     int NewMasternodeReward_StartBlock() const { return nNewMasternodeReward_StartBlock; }
     int NewMasternodeReward_Collateral() const { return nNewMasternodeReward_Collateral; }
-    double NewMasternodeReward_MNPercent() const { return nNewMasternodeReward_MNPercent; }
 
 protected:
     CChainParams() {}
@@ -143,7 +142,6 @@ protected:
     int64_t nBudget_Fee_Confirmations;
     int nNewMasternodeReward_StartBlock;
     int nNewMasternodeReward_Collateral;
-    double nNewMasternodeReward_MNPercent;
 };
 
 /**
