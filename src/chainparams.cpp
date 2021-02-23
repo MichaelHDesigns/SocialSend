@@ -332,17 +332,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(0, uint256("0xb06b542aa656ba613882269e38a7f487a9a04cc129a85d3f7c6463aa6a5dabc9"))
-                              (640953, uint256("0x7de563f8c1b04a1007512aa86ca6ad7867b6edf74295634b6a37d9acfba52d84"))
-                              (640954, uint256("0xc6e05be69577f8c3c6742f3a5af16b84d2184f222cc73d40a3895517b0d213ee"))
-                              (640955, uint256("0x2d7d3bb64be5c5312534fa131d0fbb5eceb717fd3c7068623b8b106865559893"))
-                              (644895, uint256("0xba58649fe95ce60e5a90e592bb09ea81453875e4aefdb359b87769c09c9d89d1"))
-                              (1340790, uint256("0x365be7115a301111a379766d3fbc655016083b89e710d3b82654b6700b1907cc"))
-                              (1340850, uint256("0xad02ed0f42a5d76eeabb69f437fc945b43d0f999fdfd0aa251b07a4605cd3e03"))
-                              (1340965, uint256("0x52b7ea1c19d1ba12cabe461f7b3026dd5236f27dafb70636a1ce1e82732770f4"))
-                              (1366146, uint256("0x524fb0b11fc44f4896a9e510bc10c1ff4963bf686f10cb1ed8abb0786852b4d5"))
-                              (1366147, uint256("0xfff907bf42e74dfab737241341472fc9d783e1c0ca1c7c8a6d80ae176f75c8f0"))
-                              (1427337, uint256("0xf576acfccc53c0af8810975c7e94b430d1a8b5925ba9263d2b2abe81083ce010"));
+    boost::assign::map_list_of(0, uint256("0xb06b542aa656ba613882269e38a7f487a9a04cc129a85d3f7c6463aa6a5dabc9"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1594097604, // * UNIX timestamp of last checkpoint block
@@ -379,12 +369,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x81;
-        pchMessageStart[1] = 0xc4;
-        pchMessageStart[2] = 0xed;
-        pchMessageStart[3] = 0xe9;
+        pchMessageStart[0] = 0x61;
+        pchMessageStart[1] = 0xc5;
+        pchMessageStart[2] = 0xde;
+        pchMessageStart[3] = 0x9e;
         vAlertPubKey = ParseHex("0475253fdd4a4f4fdc9132ee88309f082c8390ef0f74ee2aa70ffb857b54b9d61522658cb9c5822e820d6d96af338b1be09c9bf2b0f7043db4b76ab5f05cba9752");
-        nDefaultPort = 50050;
+        nDefaultPort = 61005;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // SEND starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -394,14 +384,13 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60 * 40;  // SEND: 40 minutes
         nTargetSpacing = 1 * 60;        // SEND: 1 minute
-        nLastPOWBlock = 1001;
+        nLastPOWBlock = 20000000;
         nMaturity = 10;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
-        nMaxMoneyOut = 65000000 * COIN;
-        nNewMasternodeReward_StartBlock = 385000;
-        nNewMasternodeReward_Collateral = 12500;
-        nNewMasternodeReward_MNPercent = 75.0 / 100.0;
+        nMaxMoneyOut = 40000000 * COIN;
+        nNewMasternodeReward_StartBlock = 250;
+        nNewMasternodeReward_Collateral = 5000;
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
@@ -467,23 +456,14 @@ public:
         assert(hashGenesisBlock == uint256("0xb06b542aa656ba613882269e38a7f487a9a04cc129a85d3f7c6463aa6a5dabc9"));
         assert(genesis.hashMerkleRoot == uint256("0x91b58b73311ec15f5f0a2aa31626808b81d463bca5e1ccfd39617352301f9c76"));
 
-        vSeeds.push_back(CDNSSeedData("dns.socialsend.io", "seed.dns.socialsend.io"));     // Primary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("dns.socialsend.info", "seed.dns.socialsend.info"));
-
-        vSeeds.push_back(CDNSSeedData("explorer.socialsend.io", "explorer.socialsend.io")); // Explorer
-        vSeeds.push_back(CDNSSeedData("us-e1.socialsend.io", "us-e1.socialsend.io")); // squid
-        vSeeds.push_back(CDNSSeedData("us-e2.socialsend.io", "us-e2.socialsend.io")); // squid
-        vSeeds.push_back(CDNSSeedData("us-w1.socialsend.io", "us-w1.socialsend.io"));
-        vSeeds.push_back(CDNSSeedData("us-w2.socialsend.io", "us-w2.socialsend.io"));
-        vSeeds.push_back(CDNSSeedData("de.socialsend.io", "de.socialsend.io")); // squid
-        vSeeds.push_back(CDNSSeedData("fr.socialsend.io", "fr.socialsend.io"));
-        vSeeds.push_back(CDNSSeedData("uk.socialsend.io", "uk.socialsend.io"));
-        vSeeds.push_back(CDNSSeedData("jp.socialsend.io", "jp.socialsend.io"));
-        vSeeds.push_back(CDNSSeedData("aus.socialsend.io", "aus.socialsend.io"));
+     //   vSeeds.push_back(CDNSSeedData("dns.socialsend.io", "seed.dns.socialsend.io"));     // Primary DNS Seeder
+     //   vSeeds.push_back(CDNSSeedData("dns.socialsend.info", "seed.dns.socialsend.info"));
 
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
+
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 40);  // starts with 'H'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 28);  // starts with 'C'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
@@ -527,23 +507,23 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x45;
-        pchMessageStart[1] = 0x76;
+        pchMessageStart[0] = 0xd6;
+        pchMessageStart[1] = 0xe1;
         pchMessageStart[2] = 0x65;
-        pchMessageStart[3] = 0xba;
+        pchMessageStart[3] = 0xae;
         vAlertPubKey = ParseHex("000010e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9");
-        nDefaultPort = 51474;
+        nDefaultPort = 50016;
         nEnforceBlockUpgradeMajority = 6480;
         nRejectBlockOutdatedMajority = 12312;
         nToCheckBlockUpgradeMajority = 12960; // ((60*60*24)/30)*4.5 = 12960 or about 4 days
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60 * 40;  // SEND: 40 minutes
         nTargetSpacing = 1 * 60;        // SEND: 1 minute
-        nLastPOWBlock = 200;
+        nLastPOWBlock = 20000000;
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
-        nMaxMoneyOut = 43199500 * COIN;
+        nMaxMoneyOut = 40000000 * COIN;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1454124731;
@@ -555,16 +535,12 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         //TESTNET NODES
-        vSeeds.push_back(CDNSSeedData("35.224.177.163", "35.224.177.163"));
-        vSeeds.push_back(CDNSSeedData("35.193.118.249", "35.193.118.249"));
-        vSeeds.push_back(CDNSSeedData("35.193.60.209", "35.193.60.209"));
-        vSeeds.push_back(CDNSSeedData("35.192.34.152", "35.192.34.152"));
-        vSeeds.push_back(CDNSSeedData("35.193.108.4", "35.193.108.4"));
-        vSeeds.push_back(CDNSSeedData("35.226.165.157", "35.226.165.157"));
-        vSeeds.push_back(CDNSSeedData("130.211.162.170", "130.211.162.170"));
+     //   vSeeds.push_back(CDNSSeedData("35.224.177.163", "35.224.177.163"));
+     //   vSeeds.push_back(CDNSSeedData("35.193.118.249", "35.193.118.249"));
+ 
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet send addresses start with 'x' or 'y'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet send script addresses start with '8' or '9'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 100); // Testnet send addresses start with 'x' or 'y'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 88);  // Testnet send script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         // Testnet send BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
@@ -590,7 +566,6 @@ public:
 
         nNewMasternodeReward_StartBlock = 201;
         nNewMasternodeReward_Collateral = 12500;
-        nNewMasternodeReward_MNPercent = 75.0 / 100.0;
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
