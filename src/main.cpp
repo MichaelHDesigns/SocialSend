@@ -1742,7 +1742,6 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     }
 
     if (nHeight >= Params().NewMasternodeReward_StartBlock()) {
-        ret = blockValue * Params().NewMasternodeReward_MNPercent();
         return ret;
     }
     
